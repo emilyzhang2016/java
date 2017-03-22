@@ -26,6 +26,8 @@ public class MaxTemperature{
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
+                FileOutputFormat.setCompressOutput(job, true);
+		FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class)
 		system.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
